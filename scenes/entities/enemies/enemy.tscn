@@ -14,3 +14,4 @@ script = ExtResource("1_yfmsl")
 [node name="Timers" type="Node" parent="."]
 
 [node name="AttackTimer" type="Timer" parent="Timers"]
+autostart = true

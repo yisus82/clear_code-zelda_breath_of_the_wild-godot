@@ -8,7 +8,7 @@ extends CharacterBody3D
 
 @export var walk_speed := 2.0
 @export var rotation_speed := 6.0
-@export var notice_radius := 30.0
+@export var notice_radius := 20.0
 @export var attack_radius := 3.0
 
 var rng = RandomNumberGenerator.new()
@@ -17,6 +17,8 @@ var speed := walk_speed
 
 func move_toward_player(delta: float) -> void:
   if position.distance_to(player.position) > notice_radius:
+    velocity = Vector3.ZERO
+    move_state_machine.travel("Idle")
     return
   var target_direction := (player.position - position).normalized()
   var target_vector2d := Vector2(target_direction.x, target_direction.z)

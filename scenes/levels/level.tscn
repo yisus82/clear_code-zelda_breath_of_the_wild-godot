@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://da8vgj3rchj5q"]
+[gd_scene load_steps=10 format=3 uid="uid://da8vgj3rchj5q"]
 
 [ext_resource type="PackedScene" uid="uid://ct170uv5iu4xs" path="res://scenes/entities/player/player.tscn" id="1_377w7"]
 [ext_resource type="PackedScene" uid="uid://op4aiehopfel" path="res://scenes/entities/enemies/boss.tscn" id="2_bovvr"]
 [ext_resource type="PackedScene" uid="uid://bxasods8ljxk8" path="res://scenes/entities/enemies/skeleton_warrior.tscn" id="3_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://xd14sj8qa6f3" path="res://scenes/entities/enemies/skeleton_mage.tscn" id="4_xb4v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ftxyw"]
 sky_top_color = Color(0.8, 0.9254902, 0.99607843, 1)
@@ -40,11 +41,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.572308, 0, -15.706882)
 
 [node name="Boss" parent="Entities" instance=ExtResource("2_bovvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.434108, 0, 16.724457)
-visible = false
 range_distance = 10.0
 
 [node name="SkeletonWarrior" parent="Entities" instance=ExtResource("3_b2cq8")]
-melee_distance = 2.0
 
 [node name="Environment" type="Node3D" parent="."]
 
@@ -65,3 +64,6 @@ size = Vector3(10, 10, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D2"]
 shape = SubResource("BoxShape3D_bovvr")
+
+[node name="Skeleton Mage" parent="." instance=ExtResource("4_xb4v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.853516, 0, 15.265535)

@@ -70,3 +70,6 @@ func _on_blink_timer_timeout() -> void:
   await get_tree().create_timer(0.2).timeout
   change_face("default")
   $BlinkTimer.wait_time = rng.randf_range(1.5, 3.0)
+
+func can_damage(value: bool) -> void:
+  $Rig/Skeleton3D/RightHandSlot/Sword.can_damage = value

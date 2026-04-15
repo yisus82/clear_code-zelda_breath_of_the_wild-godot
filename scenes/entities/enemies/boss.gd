@@ -53,3 +53,8 @@ func stop_spinning() -> void:
   tween.tween_method(spin_transition, 1.0, 0.0, 0.3)
   is_spinning = false
   $Timers/AttackTimer.start()
+
+func hit() -> void:
+  if not $Timers/InvulnerabilityTimer.time_left:
+    print("Boss was hit!")
+    $Timers/InvulnerabilityTimer.start()

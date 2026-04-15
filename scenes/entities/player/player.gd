@@ -32,6 +32,9 @@ var speed_multiplier := 1.0
 var velocity_delta_multiplier := 4.0
 var rotation_delta_multiplier := 6.0
 
+func _ready() -> void:
+	skin.toggle_weapon(is_weapon_active)
+
 func _physics_process(delta: float) -> void:
 	move_logic(delta)
 	jump_logic(delta)

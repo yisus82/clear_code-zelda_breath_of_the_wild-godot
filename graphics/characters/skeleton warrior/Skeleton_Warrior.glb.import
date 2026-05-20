@@ -40,10 +40,10 @@ materials/extract_path=""
 _subresources={
 "animations": {
 "1H_Melee_Attack_Slice_Diagonal": {
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://graphics/characters/skeleton warrior/skeleton_attack.res",
 "save_to_file/keep_custom_tracks": true,
-"save_to_file/path": "res://graphics/characters/skeleton warrior/skeleton_attack.res",
+"save_to_file/path": "uid://cr5jp8dwq0php",
 "settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,

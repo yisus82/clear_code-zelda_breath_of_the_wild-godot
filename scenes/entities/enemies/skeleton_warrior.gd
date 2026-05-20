@@ -1,9 +1,9 @@
 extends Enemy
 
-@export var melee_distance := 2.0
+@export var melee_distance := 1.2
 
 func _ready() -> void:
-  attack_radius = 1.5
+  attack_radius = melee_distance
   notice_radius = 15.0
 
 func _physics_process(delta: float) -> void:
@@ -11,7 +11,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_attack_timer_timeout() -> void:
   if position.distance_to(player.position) > notice_radius:
-     return
+   return
   $Timers/AttackTimer.wait_time = rng.randf_range(2.5, 3.5)
   if position.distance_to(player.position) <= melee_distance:
     $AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+
+func can_damage(value: bool) -> void:
+  $Skin/Rig/Skeleton3D/BoneAttachment3D/Bone.can_damage = value

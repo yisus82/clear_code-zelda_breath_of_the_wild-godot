@@ -1,10 +1,14 @@
 extends Enemy
 
-@export var melee_distance := 5.0
-@export var range_distance := 10.0
+@export var melee_distance := 1.5
+@export var range_distance := 3.0
 @export var spin_speed := 6.0
 
 var is_spinning := false
+
+func _ready() -> void:
+  attack_radius = range_distance
+  notice_radius = 25.0
 
 func _physics_process(delta: float) -> void:
   move_toward_player(delta)
@@ -47,7 +51,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
     stop_spinning()
 
 func stop_spinning() -> void:
-  await get_tree().create_timer(rng.randf_range(1.0, 2.0)).timeout
+  await get_tree().create_timer(rng.randf_range(0.5, 1.5)).timeout
   var tween = create_tween()
   tween.tween_property(self, "speed", walk_speed, 0.5)
   tween.tween_method(spin_transition, 1.0, 0.0, 0.3)

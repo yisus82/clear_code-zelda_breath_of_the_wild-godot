@@ -1,9 +1,9 @@
 extends Enemy
 
-@export var range_distance := 15.0
+@export var range_distance := 10.0
 
 func _ready() -> void:
-  attack_radius = 10
+  attack_radius = range_distance
   notice_radius = 15.0
 
 func _physics_process(delta: float) -> void:
